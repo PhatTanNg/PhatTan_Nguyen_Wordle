@@ -1,0 +1,96 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PhatTan_Nguyen_Wordle.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Instructions" Clicked="GoToInstructions"  />
+        <ToolbarItem Text="Leaderboard" Clicked="ShowLeaderboard" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Wordle Game" FontSize="24" HorizontalOptions="CenterAndExpand" Margin="0,20,0,20"/>
+            <!-- Add this button in your XAML where you want it -->
+
+
+
+            <!-- Grid for Guess Input -->
+            <Grid x:Name="GuessGrid" HorizontalOptions="CenterAndExpand" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Add Entry Boxes for Guess (1 Box per Letter) -->
+                <Entry x:Name="GuessEntry00" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry01" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry02" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry03" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry04" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Column="4" IsEnabled="False"/>
+
+                <!-- Repeat for other rows -->
+                <Entry x:Name="GuessEntry10" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry11" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry12" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry13" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry14" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="1" Grid.Column="4" IsEnabled="False"/>
+
+                <!-- Repeat for other rows -->
+                <Entry x:Name="GuessEntry20" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry21" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry22" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry23" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry24" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="2" Grid.Column="4" IsEnabled="False"/>
+
+                <!-- Repeat for other rows -->
+                <Entry x:Name="GuessEntry30" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry31" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry32" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry33" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry34" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="4" IsEnabled="False"/>
+
+                <!-- Repeat for other rows -->
+                <Entry x:Name="GuessEntry40" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry41" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry42" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry43" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry44" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="4" Grid.Column="4" IsEnabled="False"/>
+
+                <!-- Repeat for other rows -->
+                <Entry x:Name="GuessEntry50" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="0" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry51" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="1" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry52" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="2" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry53" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="3" IsEnabled="False"/>
+                <Entry x:Name="GuessEntry54" MaxLength="1" HorizontalOptions="CenterAndExpand" Grid.Row="5" Grid.Column="4" IsEnabled="False"/>
+                <!-- ... -->
+
+            </Grid>
+
+            <!-- Add this label to your XAML file, perhaps below the "Feedback Label" -->
+            <Label x:Name="TimerLabel" Text="" FontSize="18" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20"/>
+
+            <!-- Submit Guess Button -->
+            <Button Text="Submit Guess" Clicked="submitGuess"
+                HorizontalOptions="CenterAndExpand" Margin="0,20,0,20"/>
+
+            <!-- Feedback Label -->
+            <Label x:Name="FeedbackLabel" Text="" FontSize="18" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20"/>
+
+            <!-- Start New Game Button -->
+            <Button Text="Start New Game" Clicked="startGame"  HorizontalOptions="CenterAndExpand"/>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
